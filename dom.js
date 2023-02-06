@@ -35,6 +35,10 @@ const creaCss = () => {
     col4.setAttribute("class","col-3");
 
     //col1 formulario
+    const formulario = document.createElement('form');
+    formulario.innerHTML = "<div class='mb-3'> <label for='exampleInputEmail1' class='form-label'>Correo electronico</label> <input type='email' class='form-control' id='correo' aria-describedby='emailHelp'> </div> <div class='mb-3'> <label for='exampleInputPassword1' class='form-label'>Contraseña</label> <input type='password' class='form-control' id='pass'> </div> <button type='submit' class='btn btn-primary'>Verificar</button>";
+    
+    //col2
 
     document.body.appendChild(contenedorPadre); 
     contenedorPadre.appendChild(btn);
@@ -44,5 +48,6 @@ const creaCss = () => {
     rowContenedor.appendChild(col2);
     rowContenedor.appendChild(col3);
     rowContenedor.appendChild(col4);
+    col1.appendChild(formulario);
 
 }
