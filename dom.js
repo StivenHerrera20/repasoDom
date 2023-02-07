@@ -3,12 +3,16 @@ btn.setAttribute("onclick","creaCss()");
 btn.innerText = "Activar CSS";
 document.body.appendChild(btn);
 
+
 //Evento onClick
 const creaCss = () => {  
+    btn.setAttribute("onclick","desactivarCss()");
+    btn.innerText = "Desactivar CSS";
     //Llamo el body
     const body = document.querySelector('body');
     //Creo un div para que sea el contenedor padre
     const contenedorPadre = document.createElement('div');
+    contenedorPadre.setAttribute("id","contenedorPadre");
     //creo la row del titulo
     const rowTitulo = document.createElement('div');
     //manipulo el body para darle color al fondo
@@ -23,6 +27,7 @@ const creaCss = () => {
    //------------------------ columnas----------------------------
    const rowContenedor = document.createElement('div');
    rowContenedor.setAttribute("class","row mt-2");
+   rowContenedor.setAttribute("id","rowCo");
    //Creo las columnas  
    const col1 = document.createElement('div');
    const col2 = document.createElement('div');
@@ -30,16 +35,20 @@ const creaCss = () => {
    const col4 = document.createElement('div');
     //les asigno la clase
     col1.setAttribute("class","col-3");
+    col1.setAttribute("id","form");
     col2.setAttribute("class","col-3");
     col3.setAttribute("class","col-3");
     col4.setAttribute("class","col-3");
 
     //col1 formulario
     const formulario = document.createElement('form');
+    formulario.setAttribute("id","formulario");
     formulario.innerHTML = "<div class='mb-3'> <label for='exampleInputEmail1' class='form-label'>Correo electronico</label> <input type='email' class='form-control' id='correo' aria-describedby='emailHelp'> </div> <div class='mb-3'> <label for='exampleInputPassword1' class='form-label'>Contraseña</label> <input type='password' class='form-control' id='pass'> </div> <button type='submit' class='btn btn-primary'>Verificar</button>";
     
     //col2
 
+
+    //Armo la estructura
     document.body.appendChild(contenedorPadre); 
     contenedorPadre.appendChild(btn);
     contenedorPadre.appendChild(rowTitulo);
@@ -49,5 +58,16 @@ const creaCss = () => {
     rowContenedor.appendChild(col3);
     rowContenedor.appendChild(col4);
     col1.appendChild(formulario);
+
+}
+const desactivarCss = () => {
+    contenedorPadre.remove();
+    btn.setAttribute("onclick","creaCss()");
+    btn.innerText = "Activar CSS";
+    btn.removeAttribute("style");
+    btn.removeAttribute("class");
+    document.body.removeAttribute("style");
+    document.body.appendChild(btn);
+
 
 }
